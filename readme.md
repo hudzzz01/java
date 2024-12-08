@@ -1,8 +1,15 @@
-# 🔖 Program enkripsi / sandi Caesar Chiper Mengunakan bahasa Java 
+# 🔖 Program membalik huruf yang bahasa Java 
 
 ~~ Muhamad Hudzaifah Assyahid. ~~ ✨
 - requerement : 
 - java 17.
+---
+
+
+Example/contoh bahasa 🚨
+- input : hudzaifah assyahid
+- output : dihayssa hafiazduh
+
 
 ___ 
 # How to run :
@@ -21,5 +28,5 @@ ___
 
 # Lapiran : 
 
-![Screen Shoot](https://github.com/hudzzz01/java/blob/main/cuplikan.png?raw=true)
+![Screen Shoot](https://github.com/hudzzz01/java/blob/baik-kata/cuplikanBalikKata.png?raw=true)
 
