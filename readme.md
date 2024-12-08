@@ -19,7 +19,7 @@ ___
 
 ---
 
-# Lapiran : 
+# Lampiran : 
 
 ![Screen Shoot](https://github.com/hudzzz01/java/blob/main/cuplikan.png?raw=true)
 
