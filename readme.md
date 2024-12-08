@@ -28,5 +28,5 @@ ___
 
 # Lapiran : 
 
-![Screen Shoot](https://github.com/hudzzz01/java/blob/baik-kata/cuplikanBalikKata.png?raw=true)
+![Screen Shoot](https://github.com/hudzzz01/java/blob/balik-kata/cuplikanBalikKata.png?raw=true)
 
