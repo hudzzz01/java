@@ -1,4 +1,4 @@
-public class MyMath {
+public class Rumus {
 
     class lingkaran{
         public  static Double menghitungLuasLingkaranJariJAri(double r){

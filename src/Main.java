@@ -1,59 +1,147 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-
-
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        Scanner myInput = new Scanner(System.in);
+        double hasil = 0.0;
 
-        String banner = "Selamat Datang di perogram melihat binnary \n Silahkan masukan kata-kata anda :";
-        System.out.print(banner);
-        String kataKata = String.valueOf(myInput.nextLine());
+        while (hasil == 0.0){
+            try{
 
+                hasil =  displayMenu();
 
-        String hasil = convertStringToBinary(kataKata);
-
-        System.out.println(hasil);
-
-    }
-
-    public static String convertStringToBinary(int kataKata){
-        return "yang harus kamu masukan adalah string";
-    }
-
-    public static String convertStringToBinary(String kataKata){
-        String allBinary = "";
-        for(var i = 0; i<kataKata.length(); i++){
-            var huruf = kataKata.charAt(i);
-            var decValue = Integer.valueOf(huruf);
-
-            String bin = "";
-            while (decValue > 0){
-                if(decValue%2 == 0){
-                    bin += 0;
-                }else {
-                    bin += 1;
+                if (hasil != 0.0) {
+                    System.out.println("Hasilnya adalah : " + hasil);
                 }
-                decValue /= 2;
 
 
-
+            } catch (Exception e) {
+                System.out.println("input tidak valid");
             }
+        }
 
-            String binary = "";
-            for (int j = bin.length()-1; j >= 0; j--) {
-                binary += bin.charAt(j);
-            }
+        System.out.println("Selesai");
 
-//            System.out.println(binary);
-            allBinary += huruf + " => " + binary + "\n";
 
+
+    }
+
+    public static Double displayMenu(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("-----------------");
+        System.out.println("--SELAMAT DATANG DI KALKULATOR SEDERHANA SAYA");
+        System.out.println(
+                        "1. Luas dan Keliling lingkaran \n" +
+                        "2. Luas dan keliling segitiga \n" +
+                        "3. Luas persegi / persegi panjang\n" +
+                        "0. Keluar\n" +
+                         "-----------------\n"
+
+        );
+
+        System.out.print("Masukan input anda : ");
+
+        Integer pilihan1 = scanner.nextInt();
+
+        switch (pilihan1){
+            case 1 :
+                System.out.println(
+                        "1. Input berupa diameter (Luas)\n" +
+                        "2. Input berupa jari-jari (Luas)\n" +
+                        "3. Input berupa diameter (Keliling)\n" +
+                        "4. Input berupa jari-jari (Keliling)\n" +
+                        "99. Kembali \n" +
+                        "0. Keluar \n" +
+                        "-----------------\n"
+                );
+                System.out.print("Masukan input anda : ");
+
+                Integer pilihan2 = scanner.nextInt();
+
+                switch (pilihan2){
+                    case 1 :
+                        System.out.print(
+                                "Masukan diameter : "
+                        );
+                        double diameter = scanner.nextInt();
+
+                        return  Rumus.lingkaran.menghitungLuasLingkaranDiameter(diameter);
+
+
+                    case 2 :
+
+                        System.out.print(
+                                "Masukan jari-jari : "
+                        );
+                        double r = scanner.nextInt();
+
+                        return  Rumus.lingkaran.menghitungLuasLingkaranJariJAri(r);
+
+
+                    case 3 :
+                        System.out.print(
+                                "Masukan diameter: "
+                        );
+                        double diameterKeliling = scanner.nextInt();
+
+                        return  Rumus.lingkaran.menghitungKelilingLingkaranDiameter(diameterKeliling);
+
+
+                    case 4 :
+                        System.out.print(
+                                "Masukan jari-jari: "
+                        );
+                        double rKeliling = scanner.nextInt();
+
+                        return  Rumus.lingkaran.menghitungKelilingLingkaranDiameter(rKeliling);
+
+
+                    case 0 :
+                        System.exit(0);
+                        break;
+
+                    case 99 :
+                        return 0.0;
+
+
+                    default:
+                        System.out.println("Input tidak sesuai");
+
+                }
+
+                break;
+
+            case 2 :
+                System.out.println(
+                        "1. Keliling segitiga \n" +
+                        "2. Luas segitiga \n"
+                );
+
+
+
+                break;
+
+            case 3 :
+                System.out.println(
+                        "1. luas persegi panjang \n" +
+                        "2. luas segitiga \n "
+                );
+                break;
+
+            case 0 :
+                exitProgram();
+                break;
+
+            default:
+                System.out.println("input tidak sesuai");
 
         }
 
-        return allBinary;
+        return 0.0;
+    };
+
+    public static void exitProgram(){
+        System.exit(0);
     }
 }
