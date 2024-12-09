@@ -7,8 +7,8 @@
 ___ 
 # How to run :
 - Clone this repo git clone
-- javac CaesarChipper.java
-- java CaesarChipper
+- javac HurufGanda.java
+- java HurufGanda
 
 ---
 - Contact me :
