@@ -1,4 +1,4 @@
-# 🔖 Program enkripsi / sandi Caesar Chiper Mengunakan bahasa Java 
+# 🔖 Mencari Huruf Ganda Dari Kata/Kalimat yang dimasukan Mengunakan bahasa Java 
 
 ~~ Muhamad Hudzaifah Assyahid. ~~ ✨
 - requerement : 
@@ -18,8 +18,8 @@ ___
 # Thanks
 
 ---
+# Contoh / Examp
 
-# Lapiran : 
-
-![Screen Shoot](https://github.com/hudzzz01/java/blob/main/cuplikan.png?raw=true)
+input : hudzaifah
+output : [h,a]
 
