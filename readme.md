@@ -14,8 +14,8 @@ Example/contoh bahasa 🚨
 ___ 
 # How to run :
 - Clone this repo git clone
-- javac CaesarChipper.java
-- java CaesarChipper
+- javac BalikKata.java
+- java BalikKata
 
 ---
 - Contact me :
