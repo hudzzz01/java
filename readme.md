@@ -20,6 +20,6 @@ ___
 ---
 # Contoh / Examp
 
-input : hudzaifah
-output : [h,a]
+- input : hudzaifah
+- output : [h,a]
 
