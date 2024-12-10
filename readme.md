@@ -21,8 +21,6 @@
 ---
 # Task information : 
 
-[CHALLENGE - 5.3] Cut The bamboos
-
 Setiap bamboo memiliki ruas. Buatlah program yang dapat mensimulasikan pemotongan banyak bamboo dengan ketentuan sebagai berikut
 
 Kriteria:
