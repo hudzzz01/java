@@ -117,6 +117,44 @@ public class Main {
                         "1. Keliling segitiga \n" +
                         "2. Luas segitiga \n"
                 );
+                System.out.println("-----------------------");
+                System.out.print("Masukan pilihan anda : ");
+
+                Integer pilihan3 = scanner.nextInt();
+
+                switch (pilihan3){
+                    case 1:
+                        System.out.print("Masukan nilai a ");
+                        double a = scanner.nextInt();
+                        scanner.nextLine();
+
+                        System.out.print("Masukan nilai b");
+                        double b = scanner.nextInt();
+                        scanner.nextLine();
+
+                        System.out.print("Masukan nilai c ");
+                        double c = scanner.nextInt();
+                        scanner.nextLine();
+
+                        double hasil =  Rumus.segitiga.menghiungKelilingSegitiga(a,b,c);
+                        System.out.print("Hasilnya adalah : " + hasil);
+
+                        break;
+
+                    case 2:
+                        System.out.print("Masukan nilai alas :");
+                        double alas = scanner.nextInt();
+                        scanner.nextLine();
+
+                        System.out.print("Masukan nilai tinggi :");
+                        double tinggi = scanner.nextInt();
+                        scanner.nextLine();
+
+                        double hasilLuasSegitiga = Rumus.segitiga.menghitungLuasSegitiga(alas,tinggi);
+
+                        System.out.print("Hasilnya adalah : " + hasilLuasSegitiga);
+                }
+
 
 
 
