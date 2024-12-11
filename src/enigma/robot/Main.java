@@ -18,19 +18,21 @@ public class Main {
 
         Robot myRobot = new Robot(xAwal,yAwal);
 
+        System.out.println("kordinat awal : " +myRobot.toString());
+
         for( String move : perintahArr){
             if (move.equals("R")){
                 myRobot.R(myRobot);
                 move(myRobot,"R");
-            }
+            }else
             if (move.equals("L")){
                 myRobot.L(myRobot);
                 move(myRobot,"L");
-            }
+            }else
             if (move.equals("F")){
                 myRobot.F(myRobot);
                 move(myRobot,"F");
-            }
+            }else
             if (move.equals("B")){
                 myRobot.B(myRobot);
                 move(myRobot,"B");

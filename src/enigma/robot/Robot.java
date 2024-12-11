@@ -5,7 +5,7 @@ public class Robot {
     private Integer xCordinat = 0;
 
 
-    public Robot(Integer yCordinat, Integer xCordinat) {
+    public Robot(Integer xCordinat, Integer yCordinat) {
         this.yCordinat = yCordinat;
         this.xCordinat = xCordinat;
     }
@@ -15,11 +15,11 @@ public class Robot {
     }
 
     public void R(Robot robot){
-        this.xCordinat += 1;
+        robot.xCordinat += 1;
     }
 
     public void L(Robot robot){
-        this.xCordinat -= 1;
+        robot.xCordinat -= 1;
     }
 
     public void F(Robot robot){
@@ -27,7 +27,7 @@ public class Robot {
     }
 
     public void B(Robot robot){
-        this.yCordinat -= 1;
+        robot.yCordinat -= 1;
     }
 
 
