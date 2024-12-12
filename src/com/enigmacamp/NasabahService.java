@@ -61,9 +61,59 @@ public class NasabahService implements CrudNasabahService {
         }
     }
 
-    void cekIdNasabah(Integer id){
+    void deleteNasabahFromArr(Nasabah nasabah) throws Exception {
+        //get index nasabah
+        Boolean flag = false;
+        Integer index = 0;
+        for (int i = 0; i < items.length; i++) {
+            Nasabah item = items[i];
+
+            //kalau berhasil ambil index array
+            if(item != null) {
+               if(nasabah.getId() == item.getId()) {
+                   index = i;
+                   flag = true;
+                   this.nasabahCount -= 1;
+               };
+            }
+
+        }
+
+        //kalau index array gagal diambil
+        if (!flag) throw new Exception("gagal mengambil index Arr");
+
+        //sekarang nilai index sudah berhasil di ambil ubah data tersebut menjadi null
+        items[index] = null;
+
+
 
     }
+
+    void rapihkanArrItems(){
+        //buat array kosong baru untuk di isi dengan data baru sepanjang array lama
+        Nasabah[] newItem = new Nasabah[this.items.length];
+
+        //looping iterasi untuk memindahkan arrlama jika tidak null ke arr bary
+        Integer flagIndexArrBaru = 0;
+        for (int i = 0; i < this.items.length; i++) {
+            Nasabah item = this.items[i];
+
+            //pindahkan ke array baru
+            if(item != null) {
+                newItem[flagIndexArrBaru] = item; //ini belum di clone !!!! baru mindahin aj
+                flagIndexArrBaru++;
+            };
+        }
+
+
+
+        //jika sudah selesai ubah this.item dengan array baru yang sudah rapihi
+        this.items = newItem;
+
+
+    }
+
+
     Nasabah ambilNasabahById(Integer id) throws Exception {
         for (Nasabah item : items){
             if(item != null) {
@@ -99,6 +149,8 @@ public class NasabahService implements CrudNasabahService {
 
     }
 
+
+
  
 
     @Override
@@ -106,13 +158,6 @@ public class NasabahService implements CrudNasabahService {
         System.out.println("berikut adalah seluruh data nasabah yang tersimpan :");
         System.out.println(Arrays.toString(items));
         return Arrays.toString(items);
-    }
-
-    @Override
-    public String update(Nasabah nasabah) {
-
-
-        return "";
     }
 
     @Override
@@ -133,6 +178,7 @@ public class NasabahService implements CrudNasabahService {
             return new Nasabah();
         }
     }
+
     public Nasabah getById(String idNasabah) {
         try{
             if(idNasabah.equals("")) throw new Exception("id tidak boleh kosong");
@@ -147,4 +193,43 @@ public class NasabahService implements CrudNasabahService {
         }
     }
 
+    @Override
+    public String update(Nasabah nasabah, Nasabah dataBaru ) {
+        try {
+            //cek id tersedia atau tidak
+            cekIdNasabahTersedia(dataBaru);
+
+
+            // cek nik
+            cekNikNasabahTersedia(dataBaru);
+
+            //cek nomor hp unique
+            cekNomorHpNasabahTersedia(dataBaru);
+
+            //hapus data nasabah dan bersihkan Array dari null null
+            deleteNasabahFromArr(nasabah);
+
+            //rapihkan array
+            rapihkanArrItems();
+
+            //cek items sekarang
+//            System.out.println(Arrays.toString(this.items)); //seharusnya sudah terhapus
+
+            items[nasabahCount++] = dataBaru;
+            System.out.println("berhasil menambahkan data baru");
+            System.out.println(Arrays.toString(items));
+
+
+            return Arrays.toString(items);
+
+
+
+
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        return "";
+    }
 }
