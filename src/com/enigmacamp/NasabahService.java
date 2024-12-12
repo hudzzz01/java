@@ -40,11 +40,26 @@ public class NasabahService implements CrudNasabahService {
 
     }
 
-    void cekNikNasabahTersedia(Nasabah nasabah){
+    void cekNikNasabahTersedia(Nasabah nasabah) throws Exception {
+        String nikNasabah = nasabah.getNik();
+
+        for (Nasabah item : items){
+            if(item != null) {
+                if(nikNasabah.equals(item.getNik())) throw new Exception("Nik sudah digunakan");
+            }
+        }
 
     }
 
-    void cekNomorHpNasabahTersedia(Nasabah nasabah){}
+    void cekNomorHpNasabahTersedia(Nasabah nasabah) throws Exception {
+        String nasabahPhoneNumber = nasabah.getPhoneNumber();
+
+        for (Nasabah item : items){
+            if(item != null) {
+                if(nasabahPhoneNumber.equals(item.getPhoneNumber())) throw new Exception("Nomor HP sudah digunakan");
+            }
+        }
+    }
 
     @Override
     public void create(Nasabah nasabah){
@@ -55,7 +70,11 @@ public class NasabahService implements CrudNasabahService {
             //cek id tersedia atau tidak
             cekIdNasabahTersedia(nasabah);
 
-            // nik dan nomor telfon unique
+            // cek nik
+            cekNikNasabahTersedia(nasabah);
+
+            //cek nomor hp unique
+            cekNomorHpNasabahTersedia(nasabah);
 
 
             items[nasabahCount++] = nasabah;

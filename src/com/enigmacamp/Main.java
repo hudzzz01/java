@@ -3,9 +3,16 @@ package com.enigmacamp;
 public class Main {
     public static void main(String[] args) throws Exception {
         Nasabah newNasabah = new Nasabah(1,"Juan","12345","085813934746","200-01-01");
+        Nasabah newNasabah2 = new Nasabah(2,"Juan","12345","085813934746","200-01-01");
+        Nasabah newNasabah3 = new Nasabah(3,"Juan","123456","085813934746","200-01-01");
+        Nasabah newNasabah4 = new Nasabah(4,"Juan","1234567","0858139347467","200-01-01");
         NasabahService service = new NasabahService();
 
 //        ----------- Create Nasabah
+        service.create(newNasabah);
+        service.create(newNasabah2);
+        service.create(newNasabah3);
+        service.create(newNasabah4);
         for (int i = 0; i < 16; i++) {
             service.create(newNasabah);
         }
