@@ -162,6 +162,22 @@ public class NasabahService implements CrudNasabahService {
 
     @Override
     public String delete(Nasabah nasabah) {
+        try{
+            //hapus data nasabah dan bersihkan Array dari null null
+            deleteNasabahFromArr(nasabah);
+
+            //rapihkan array
+            rapihkanArrItems();
+
+            System.out.println("data berhasil dihapus : ");
+            System.out.println(Arrays.toString(items));
+
+            return Arrays.toString(items);
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
         return "";
     }
 

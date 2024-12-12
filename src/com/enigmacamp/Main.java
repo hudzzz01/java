@@ -37,6 +37,10 @@ public class Main {
         service.update(newNasabah,newNasabah6);
         service.update(newNasabah4,newNasabah7);
 
+//        ------------- delete
+        service.delete(newNasabah6);
+
+
 
 
 
