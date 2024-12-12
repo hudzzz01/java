@@ -6,11 +6,14 @@ public class Main {
         NasabahService service = new NasabahService();
 
 //        ----------- Create Nasabah
-        service.create(newNasabah);
-
+        for (int i = 0; i < 16; i++) {
+            service.create(newNasabah);
+        }
 
 //        ------------- Read Nasabah
         System.out.println(service.read());
+
+
 
 
 

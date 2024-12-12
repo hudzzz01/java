@@ -17,20 +17,55 @@ public class NasabahService implements CrudNasabahService {
         return items;
     }
 
-
-    @Override
-    public String create(Nasabah nasabah) throws Exception {
+    void cekSlotArrItems() throws Exception {
         Integer itemCount = 0;
 
         for (Nasabah item : items){
-            if(item == null) {
+            if(item != null) {
                 itemCount++;
             }
         }
 
-        if (itemCount != items.length) throw new Exception("Array sudah penuh");
-        items[nasabahCount++] = nasabah;
-        return "Berhasil Menambahkan Nasabah baru";
+        if (itemCount == items.length) throw new Exception("Array sudah penuh");
+    }
+
+    void cekIdNasabahTersedia(Nasabah nasabah) throws Exception {
+        Integer idNasabah = nasabah.getId();
+
+        for (Nasabah item : items){
+            if(item != null) {
+                if(idNasabah.equals(item.getId())) throw new Exception("Id sudah digunakan");
+            }
+        }
+
+    }
+
+    void cekNikNasabahTersedia(Nasabah nasabah){
+
+    }
+
+    void cekNomorHpNasabahTersedia(Nasabah nasabah){}
+
+    @Override
+    public void create(Nasabah nasabah){
+        try{
+            //cek kapasitas nasabah
+            cekSlotArrItems();
+
+            //cek id tersedia atau tidak
+            cekIdNasabahTersedia(nasabah);
+
+            // nik dan nomor telfon unique
+
+
+            items[nasabahCount++] = nasabah;
+
+
+            System.out.println("Berhasil Menambahkan Nasabah baru");
+        }catch (Exception e){
+            System.out.println("Gagal membuat nasabah baru ! error ->" + e.getMessage());
+        }
+
     }
 
     @Override
