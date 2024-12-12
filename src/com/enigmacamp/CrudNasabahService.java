@@ -5,6 +5,6 @@ public interface CrudNasabahService {
     public String read();
     public String update(Nasabah nasabah);
     public String delete(Nasabah nasabah);
-    public String getById(Nasabah nasabah);
+    public Nasabah getById(Integer idNasabah);
 
 }

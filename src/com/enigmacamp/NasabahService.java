@@ -61,6 +61,18 @@ public class NasabahService implements CrudNasabahService {
         }
     }
 
+    void cekIdNasabah(Integer id){
+
+    }
+    Nasabah ambilNasabahById(Integer id) throws Exception {
+        for (Nasabah item : items){
+            if(item != null) {
+                if(id.equals(item.getId())) return item;
+            }
+        }
+        throw new Exception("Id tidak ditemukan");
+    }
+
     @Override
     public void create(Nasabah nasabah){
         try{
@@ -87,13 +99,19 @@ public class NasabahService implements CrudNasabahService {
 
     }
 
+ 
+
     @Override
     public String read()  {
+        System.out.println("berikut adalah seluruh data nasabah yang tersimpan :");
+        System.out.println(Arrays.toString(items));
         return Arrays.toString(items);
     }
 
     @Override
     public String update(Nasabah nasabah) {
+
+
         return "";
     }
 
@@ -102,8 +120,31 @@ public class NasabahService implements CrudNasabahService {
         return "";
     }
 
-    public String getById(Nasabah nasabah) {
-        return "";
+    @Override
+    public Nasabah getById(Integer idNasabah) {
+        try{
+            Nasabah nasabah = ambilNasabahById(idNasabah);
+            System.out.println("berhasil mendapatkan nasabah");
+            System.out.println(nasabah);
+            return nasabah;
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return new Nasabah();
+        }
+    }
+    public Nasabah getById(String idNasabah) {
+        try{
+            if(idNasabah.equals("")) throw new Exception("id tidak boleh kosong");
+            Nasabah nasabah = ambilNasabahById(Integer.parseInt(idNasabah));
+            System.out.println("berhasil mendapatkan nasabah");
+            System.out.println(nasabah);
+            return nasabah;
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return new Nasabah();
+        }
     }
 
 }

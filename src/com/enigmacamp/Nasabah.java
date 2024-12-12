@@ -1,7 +1,7 @@
 package com.enigmacamp;
 
 public class Nasabah {
-    private int id;
+    private Integer id;
     private String fullname;
     private String nik;
     private String phoneNumber;
@@ -13,6 +13,10 @@ public class Nasabah {
         this.nik = nik;
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
+    }
+
+    public Nasabah() {
+
     }
 
     @Override

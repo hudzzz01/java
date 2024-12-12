@@ -18,7 +18,21 @@ public class Main {
         }
 
 //        ------------- Read Nasabah
-        System.out.println(service.read());
+        service.read();
+
+//        ------------ Get By Id
+        service.getById("");
+        service.getById("1"); //overloading
+        service.getById(0);
+        service.getById(1);
+
+
+//        ------------ update
+
+
+
+
+
 
 
 
