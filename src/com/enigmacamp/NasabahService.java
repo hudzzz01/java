@@ -213,14 +213,22 @@ public class NasabahService implements CrudNasabahService {
     public String update(Nasabah nasabah, Nasabah dataBaru ) {
         try {
             //cek id tersedia atau tidak
-            cekIdNasabahTersedia(dataBaru);
+            if(nasabah.getId() != dataBaru.getId()){
+                System.out.println(nasabah.getId());
+                System.out.println(dataBaru.getId());
+                cekIdNasabahTersedia(dataBaru);
+            }
 
 
             // cek nik
-            cekNikNasabahTersedia(dataBaru);
+            if(!nasabah.getNik().equals(dataBaru.getNik())){
+                cekNikNasabahTersedia(dataBaru);
+            }
 
             //cek nomor hp unique
-            cekNomorHpNasabahTersedia(dataBaru);
+            if(!nasabah.getPhoneNumber().equals(dataBaru.getPhoneNumber())){
+                cekNomorHpNasabahTersedia(dataBaru);
+            }
 
             //hapus data nasabah dan bersihkan Array dari null null
             deleteNasabahFromArr(nasabah);
